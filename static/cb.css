@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(./chatbot.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    font-weight: bold;
+}
+
+.chat-container {
+    color: rgb(145, 201, 231);
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    justify-content: center; /* Centers the content vertically */
+    height: 300px; /* Ensure the chatbox has a defined height */
+}
+
+#chat {
+    text-align: center; /* Centers the text inside the chat */
+}
+
+#conversation {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+}
+
+button {
+    padding: 10px;
+    background-color: white;
+    color: rgb(85, 183, 236);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px; /* Limit the width of the button */
+    margin-top: 10px; /* Add some spacing between elements */
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #e8a935;
+    color: white;
+    font-weight: bold;
+}
+
+/* Style the select dropdown */
+#faq-select {
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px;
+    color: #333; /* Text color */
+    font-size: 16px;
+}
+
+/* Style the options within the select dropdown */
+#faq-select option {
+    background-color: #f0f0f0; /* Ensure options have the same background */
+    color: #333; /* Text color for the options */
+}
+
+/* Optional: Change the background of the select box when it's focused */
+#faq-select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Green border when focused */
+    background-color: #e6ffe6; /* Light green background when focused */
+}
+
+@media (max-width: 1024px) {
+    .chat-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chatbox {
+        height: auto;
+        padding: 10px;
+    }
+    button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #faq-select, button {
+        font-size: 14px;
+    }
+}
+

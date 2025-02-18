@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Living Guide - Fitness & Diet Plans</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 64px;
+        }
+
+        /* Navigation Bar */
+        .nav-bg {
+            background-color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url("{{ url_for('static', filename='fitness.webp') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Overlay Effect */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .footer-bg {
+            background-color: #2c3e50;
+        }
+
+        .flex a:hover{
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+    </style>
+</head>
+<body class="bg-blue-100">
+    <!-- Navigation -->
+    <nav class="nav-bg text-white fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center h-16">
+            <h1 class="text-2xl font-bold">Healthy Living Guide</h1>
+            <div class="flex space-x-6">
+                <a href="#diabetic" class="hover:text-custom-color hover:bg-white px-4 py-2 rounded transition-colors">Diabetic Plans</a>
+                <a href="#non-diabetic" class="hover:text-custom-color hover:bg-white px-4 py-2 rounded transition-colors">Non-Diabetic Plans</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content text-white text-center">
+            <h2 class="hero-title">Personalized Fitness & Diet Plans</h2>
+            <p class="hero-subtitle">Achieve your health goals with plans tailored to your needs</p>
+            <a href="#diabetic" class="inline-block mt-8 px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Diabetic Section -->
+    <section id="diabetic" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">For Diabetic Individuals</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Fitness Plan -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <img src="{{ url_for('static', filename='dfp.png') }}" alt="Diabetic Fitness" class="rounded-lg w-full md:w-1/2 object-cover"/>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-500">Fitness Plan</h3>
+                            <div>
+                                <h4 class="font-semibold">Frequency:</h4>
+                                <p>4-5 days a week</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Duration:</h4>
+                                <p>30-60 minutes per session</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Types of Exercise:</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Aerobic exercises (walking, cycling, swimming)</li>
+                                    <li>Strength training (2-3 times per week)</li>
+                                    <li>Flexibility and balance exercises</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diet Plan -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-500">Diet Plan</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Focus on complex carbs with low glycemic index</li>
+                                <li>Lean protein sources</li>
+                                <li>Healthy fats from avocado, olive oil, nuts</li>
+                                <li>High fiber intake</li>
+                                <li>Limited sugar intake</li>
+                                <li>Small, balanced meals every 3-4 hours</li>
+                            </ul>
+                        </div>
+                        <img src="{{ url_for('static', filename='nddp.webp')}}" alt="Diabetic Diet" class="rounded-lg w-full md:w-1/2 object-cover"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Meals -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-blue-500">Sample Meals</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Breakfast</h4>
+                        <p>Oats with chia seeds, almond butter, and berries</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Lunch</h4>
+                        <p>Grilled chicken salad with leafy greens</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Dinner</h4>
+                        <p>Baked salmon with sweet potatoes and broccoli</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Snack</h4>
+                        <p>Apple slices with almonds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-Diabetic Section -->
+    <section id="non-diabetic" class="py-16 bg-blue-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">For Non-Diabetic Individuals</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Fitness Plan -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <img src="{{ url_for('static', filename='dfp.png')}}" alt="Non-Diabetic Fitness" class="rounded-lg w-full md:w-1/2 object-cover"/>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-500">Fitness Plan</h3>
+                            <div>
+                                <h4 class="font-semibold">Frequency:</h4>
+                                <p>4-6 days a week</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Duration:</h4>
+                                <p>30-90 minutes per session</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Types of Exercise:</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Cardio (running, cycling, HIIT)</li>
+                                    <li>Strength Training (3-4 times per week)</li>
+                                    <li>Flexibility and Stretching</li>
+                                    <li>Active Recovery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diet Plan -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-500">Diet Plan</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Balanced macronutrients</li>
+                                <li>Complex carbohydrates</li>
+                                <li>Lean protein sources</li>
+                                <li>Healthy fats</li>
+                                <li>Stay well-hydrated</li>
+                                <li>Limit processed foods</li>
+                                <li>3-5 meals per day</li>
+                            </ul>
+                        </div>
+                        <img src="{{ url_for('static', filename='nddp.webp')}}" alt="Non-Diabetic Diet" class="rounded-lg w-full md:w-1/2 object-cover"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Meals -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-blue-500">Sample Meals</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Breakfast</h4>
+                        <p>Scrambled eggs with spinach and avocado toast</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Lunch</h4>
+                        <p>Quinoa bowl with chickpeas and mixed veggies</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Dinner</h4>
+                        <p>Grilled chicken with roasted vegetables and brown rice</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded">
+                        <h4 class="font-semibold">Snack</h4>
+                        <p>Greek yogurt with mixed nuts and honey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Healthy Living Guide. All rights reserved.</p>
+            <p class="mt-2">Consult with healthcare professionals before starting any new fitness or diet program.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction & Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='fmp.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">Care4Diabetes</div>
+        <nav>
+            <a href="{{ url_for('index') }}">Diabetes Prediction</a>
+            <a href="{{ url_for('cb') }}">GlucoBot</a>
+            <a href="{{ url_for('fitness') }}">Fitness</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <!-- First Section: Image on Left -->
+        <section class="section image-left">
+            <div class="content">
+                <h1>Understanding Diabetes</h1>
+                <div class="para">
+                    <p>Diabetes is a chronic health condition that affects how your body turns food into energy. When you eat food, most of it is broken down into sugar (glucose) and released into your bloodstream. Your pancreas releases insulin when your blood sugar goes up, which acts as a key to let the blood sugar into your body's cells for use as energy.</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='diabetes.jpg') }}" alt="Diabetes Image">
+            </div>
+        </section>
+
+        <section class="types explain">
+            <h2>Types of Diabetes</h2><br>
+            <p>There are several types of diabetes, with Type 1, Type 2, and Gestational diabetes being the most common:</p>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Type 1 Diabetes</h3>
+                    <p>An autoimmune reaction that stops your body from making insulin. Requires daily insulin treatment.</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Type 2 Diabetes</h3>
+                    <p>Your body doesn't use insulin well and can't maintain normal blood sugar levels.</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Gestational Diabetes</h3>
+                    <p>Develops during pregnancy in women who don't already have diabetes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="types">
+            <h3>Blood Sugar Tests</h3>
+            <table>
+                <tr>
+                    <th>Test Type</th>
+                    <th>Normal Range</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Fasting Blood Sugar</td>
+                    <td>70-99 mg/dL</td>
+                    <td>Measured after 8 hours of fasting</td>
+                </tr>
+                <tr>
+                    <td>Post Prandial</td>
+                    <td>Less than 140 mg/dL</td>
+                    <td>Measured 2 hours after eating</td>
+                </tr>
+                <tr>
+                    <td>HbA1c</td>
+                    <td>Below 5.7%</td>
+                    <td>Average blood sugar over past 2-3 months</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Impact on Health:</div>
+            <p>Uncontrolled diabetes can affect multiple body systems, leading to complications such as heart disease, kidney damage, and vision problems.</p>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for High Blood Sugar</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Increased Thirst</h3>
+                    <p>Feeling thirstier than usual and drinking more fluids</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Frequent Urination</h3>
+                    <p>Making many trips to bathroom, especially at night</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Extreme Hunger</h3>
+                    <p>Feeling hungry even after eating</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Fatigue</h3>
+                    <p>Feeling very tired and weak</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Blurred Vision</h3>
+                    <p>Changes in vision clarity</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Slow Healing</h3>
+                    <p>Cuts and bruises that heal slowly</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for Low Blood Sugar</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Shakiness</h3>
+                    <p>Trembling hands and body</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Sweating</h3>
+                    <p>Sudden cold sweats even when not active</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Hunger</h3>
+                    <p>Intense, sudden feeling of hunger</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Fatigue</h3>
+                    <p>Feeling very tired and weak</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Fast Heartbeat</h3>
+                    <p>Racing heart or palpitations</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Anxiety</h3>
+                    <p>Feeling nervous or irritable without reason</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section: Image on Right -->
+        <section class="section image-right">
+            <div class="content">
+                <h1>Blood Pressure</h1>
+                <div class="para">
+                    <p>Blood pressure is the force of blood pushing against blood vessel walls. It's measured in two numbers: systolic (pressure when heart beats) and diastolic (pressure when heart rests).</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='bp.png') }}" alt="Blood Pressure Image">
+            </div>
+        </section>
+
+        <section class="types">
+            <h3>Blood Pressure Range</h3>
+            <table>
+                <tr>
+                    <th>Test Type</th>
+                    <th>Normal Range</th>
+                </tr>
+                <tr>
+                    <td>Normal</td>
+                    <td>Less than 120/80 mmHg</td>
+                </tr>
+                <tr>
+                    <td>ELevated</td>
+                    <td>120-129/less than 80 mmHg</td>
+                </tr>
+                <tr>
+                    <td>High</td>
+                    <td>High: 130/80 mmHg or higher</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Impact on Health:</div>
+            <p>High blood pressure in diabetics can double the risk of cardiovascular disease. Diabetics should maintain BP below 140/90 mmHg to prevent complications.</p>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for High Blood Pressure</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Dizziness</h3>
+                    <p>Feeling unsteady or lightheaded when moving</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Severe Headaches</h3>
+                    <p>Throbbing pain especially in the morning at the back of head</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Chest Discomfort</h3>
+                    <p>Feeling of pressure or pain in chest area</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Vision Problems</h3>
+                    <p> Blurred vision or seeing floating spots</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Nosebleeds</h3>
+                    <p>Unexplained bleeding from nose without injury</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for Low Blood Pressure</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Fainting</h3>
+                    <p>Sudden loss of consciousness, especially when standing</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Nausea</h3>
+                    <p>Feeling sick to stomach and possible vomiting</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Cold Skin</h3>
+                    <p>Pale, cold and clammy skin</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Blurred Vision</h3>
+                    <p>Difficulty focusing or temporary vision loss</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Fatigue</h3>
+                    <p>Unusual tiredness and lack of energy</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Third Section: Image on Left -->
+        <section class="section image-left">
+            <div class="content">
+                <h1>Body Mass Index</h1>
+                <div class="para">
+                    <p>BMI stands for Body Mass Index. It is a measurement that helps assess whether a person has a healthy body weight for a given height. It is commonly used to categorize individuals into different weight ranges, such as underweight, normal weight, overweight, or obese.It's a key indicator for diabetes risk assessment.</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='bmi.jpg') }}" alt="BMI Image">
+            </div>
+        </section>
+
+        <section class="types">
+            <h3>BMI Range</h3>
+            <table>
+                <tr>
+                    <th>Test Type</th>
+                    <th>Normal Range</th>
+                </tr>
+                <tr>
+                    <td>Underweight</td>
+                    <td>Less than 18.5</td>
+                </tr>
+                <tr>
+                    <td>Normal weight</td>
+                    <td>18.5-24.9</td>
+                </tr>
+                <tr>
+                    <td>Overweight</td>
+                    <td>25-29.9</td>
+                </tr>
+                <tr>
+                    <td>Obesity</td>
+                    <td>30 or greater</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Impact on Health:</div>
+            <p>Higher BMI increases insulin resistance and diabetes risk. Weight management is crucial for diabetes prevention and control.</p>
+        </section>
+
+        <section class="cal types">
+            <div class="calculator">
+                <h3>BMI Calculator</h3>
+                <p>Calculate your BMI: Weight (kg) / (Height (m))²</p>
+                <input type="number" id="weight" placeholder="Weight in kg">
+                <input type="number" id="height" placeholder="Height in cm">
+                <button onclick="calculateBMI()">Calculate BMI</button>
+               <div id="bmiResult" class="result"></div>
+            </div>
+        </section>
+
+
+        <!-- Fourth Section: Image on Right -->
+         <!-- Second Section: Image on Right -->
+        <section class="section image-right">
+            <div class="content">
+                <h1>Skin Thickness</h1>
+                <div class="para">
+                    <p>Skin thickness measurement, particularly at the triceps, is used to assess body fat distribution and can be an indicator of diabetes risk.The measurement of the skin's layers, primarily the epidermis (the outermost layer that protects against environmental damage) and dermis (the thicker layer beneath, containing blood vessels, nerves, and connective tissue). The thickness varies across body parts and individuals, influencing skin health and healing.</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='st.jpg') }}" alt="Skin Thickness Image">
+            </div>
+        </section>
+        
+        <section class="types">
+            <h3>Skin Thickness Range</h3>
+            <table>
+                <tr>
+                    <th>Gender</th>
+                    <th>Normal Range</th>
+                </tr>
+                <tr>
+                    <td>Male</td>
+                    <td>0.60-3.20mm</td>
+                </tr>
+                <tr>
+                    <td>Female</td>
+                    <td>1.50-2.80mm</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Impact on Health:</div>
+            <p>Changes in skin thickness can indicate insulin resistance and metabolic changes associated with diabetes. Higher skin fold measurements often correlate with increased diabetes risk.</p>
+        </section>
+
+        <section class="types explain">
+            <h3>Skin Thickness Measurement</h3><br>
+            <p>Skin thickness can be measured in two ways:</p>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Tools</th>
+                </tr>
+                <tr>
+                    <td>At Home:</td>
+                    <td>
+                        <li>Use a skinfold caliper (available online)</li>
+                        <li>Measure at the triceps (back of upper arm)</li>
+                        <li>Gently pinch the skin and measure without pressing too hard</li>
+                        <li>Take multiple measurements and average them</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Medical Centers:</td>
+                    <td>
+                        <li>Professional skinfold measurement using calibrated calipers</li>
+                        <li>Ultrasound measurement for precise thickness</li>
+                        <li>Multiple site measurements for better accuracy</li>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for Skin Thickness</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Joint Stiffness</h3>
+                    <p>Difficulty moving fingers and toes, Reduced flexibility due to skin thickening</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Digital Sclerosis</h3>
+                    <p>Thick, tight, waxy skin on fingers and toes, Limited joint mobility and stiffness</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Acanthosis Nigricans</h3>
+                    <p>Dark, velvety skin patches in body folds, Most common on neck, armpits, and groin areas</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Tight Waxy Skin</h3>
+                    <p>Shiny, thickened skin on backs of hands, May spread to forearms and upper arms</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Scleredema Diabeticorum</h3>
+                    <p>Thickened skin on upper back and neck, Feels like peau d'orange (orange peel texture)</p>
+                </div>
+            </div>
+        </section> 
+
+        <!-- Fifth Section: Image on Left -->
+        <section class="section image-left">
+            <div class="content">
+                <h1>Insulin</h1>
+                <div class="para">
+                    <p>A hormone produced by the pancreas that helps regulate blood sugar (glucose) levels in the body. It allows cells to absorb glucose from the bloodstream and use it for energy or store it for future use. Insulin plays a crucial role in maintaining normal metabolism and preventing high blood sugar levels (hyperglycemia), which is essential for overall health. It is especially important for people with diabetes, as their bodies either don't produce enough insulin or can't use it effectively.</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='insulin.webp') }}" alt="Insulin Image">
+            </div>
+        </section>
+
+        <section class="types">
+            <h3>Insulin Range</h3>
+            <table>
+                <tr>
+                    <th>Test Type</th>
+                    <th>Normal Range</th>
+                </tr>
+                <tr>
+                    <td>Fasting</td>
+                    <td>3-25 mIU/L</td>
+                </tr>
+                <tr>
+                    <td>Post-meal</td>
+                    <td>Less than 30 mIU/L</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Impact on Health:</div>
+            <p>In Type 1 diabetes, the body doesn't produce insulin. In Type 2 diabetes, the body becomes resistant to insulin or doesn't produce enough. Both conditions lead to high blood sugar levels.</p>
+        </section>
+
+        <section class="types common">
+            <h2>Common Symptoms for Insulin </h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Intense Sugar Cravings</h3>
+                    <p>Strong urges to eat sweets and carbohydrates</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Excessive Hunger</h3>
+                    <p>Feeling hungry soon after meals</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Dark Patches</h3>
+                    <p>Darkened skin areas, especially in body folds</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Fatigue</h3>
+                    <p>Extreme tiredness despite adequate rest</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Brain Fog</h3>
+                    <p>Difficulty concentrating and mental clarity issues</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sixth Section: Image on Right -->
+        <section class="section image-right">
+            <div class="content">
+                <h1>Diabetes Pedigree Function</h1>
+                <div class="para">
+                    <p>Diabetes Pedigree Function is a tool used to assess the genetic risk of developing diabetes based on family history. It evaluates the presence of diabetes in first-degree relatives (parents, siblings, children) and second-degree relatives (grandparents, uncles, aunts). A higher Diabetes Pedigree Function score suggests a greater genetic predisposition to developing the condition.</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='dfp.png') }}" alt="Diabetic Fitness Plan Image">
+            </div>
+        </section>
+
+        <section class="types">
+            <h3>Diabetes Pedigree Function Range</h3>
+            <table>
+                <tr>
+                    <th>Range</th>
+                    <th>Risk factor</th>
+                </tr>
+                <tr>
+                    <td>Less than 0.1</td>
+                    <td>Lowest risk</td>
+                </tr>
+                <tr>
+                    <td>0.1-0.3</td>
+                    <td>Low to moderate risk</td>
+                </tr>
+                <tr>
+                    <td>0.4-0.5</td>
+                    <td>Moderate to high risk</td>
+                </tr>
+                <tr>
+                    <td>Greater than 0.5</td>
+                    <td>High risk</td>
+                </tr>
+            </table>
+
+            <div class="sub-heading">Genetic Impact:</div>
+            <p>A higher pedigree function value indicates stronger genetic influence and potentially higher risk of developing diabetes. This helps in early prevention and monitoring strategies.</p>
+        </section>
+
+        <section class="cal types">
+            <div class="calculator">
+                <h3>Pedigree Calculator</h3>
+                <input type="number" id="relativesWithDiabetes" placeholder="Number of relatives with diabetes">
+                <input type="number" id="ageOfOnset" placeholder="Age of onset (if applicable)">
+                <button onclick="calculatePedigree()">Calculate Pedigree Function</button>
+                <div id="pedigreeResult" class="result"></div>
+            </div>
+        </section>
+
+        <section class="types common">
+            <h2>Diabetes Pedigree Signs</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Early Age Onset</h3>
+                    <p>Developing symptoms before age 50</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Gestational History</h3>
+                    <p>Mother had diabetes during pregnancy</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Early Complications</h3>
+                    <p>Family history of early diabetes complications</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Family Pattern</h3>
+                    <p>Multiple family members diagnosed with diabetes</p>
+                </div>
+                <div class="symptom-card">
+                    <h3>Ethnic Background</h3>
+                    <p>Stronger prevalence in certain ethnic groups</p>
+                </div>
+            </div>
+        </section> <br>
+
+        <div class="predict">
+            <button><a href="{{ url_for('index') }}">Click here to Predict Diabetes</a></button>
+        </div>
+        
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h1>CARE4DIABETES</h1>
+            <p><strong>Contact:</strong> (+91) 9876543210</p>
+            <p>📞 <strong>Emergency Helpline:</strong> 1800-180-9445</p>
+            <p>📧 <strong>Email:</strong> care4diabetes@gmail.com</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Contact Us</a>
+            </div>
+            <p>© 2025 Diabetes Test Laboratory. All Rights Reserved.</p>
+            <p class="disclaimer">
+                <strong>Disclaimer:</strong> This report is for informational purposes only and should not replace professional medical advice.
+            </p>
+        </div>
+
+    <script src="{{ url_for('static', filename='fmp.js') }}"></script>
+
+
+</body>
+</html>

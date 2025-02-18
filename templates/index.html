@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Assessment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="assist">
+        <button>
+            <a href="{{ url_for('cb') }}"><i class="fa-solid fa-robot"></i> Chat with Healthcare Assistance</a>
+        </button>
+    </div>
+    
+
+    <div class="containerform">
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="name">NAME:</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">AGE:</label>
+                <input type="number" id="age" name="age" placeholder="Enter Age" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label>GENDER:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>SELECT GENDER</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="pregnancyField" style="display: none;">
+                <label>PREGNANCY:</label>
+                <input type="number" id="pregnancies" name="pregnancies" placeholder="Enter number of Pregnancy" min="0">
+            </div>
+
+            <div class="form-group">
+                <label>GLUCOSE LEVEL:</label>
+                <input type="number" id="glucose" name="glucose" placeholder="Enter Glucose Level">
+            </div>
+
+            <div class="form-group">
+                <label>BLOOD PRESSURE:</label>
+                <input type="number" id="bloodPressure" name="bloodPressure" placeholder="Enter Blood Pressure">
+            </div>
+
+            <div class="form-group">
+                <label>BMI:</label>
+                <input type="number" id="bmi" name="bmi" placeholder="Enter BMI" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label>INSULIN:</label>
+                <input type="number" id="insulin" name="insulin" placeholder="Enter Insulin" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label>SKIN THICKNESS:</label>
+                <input type="number" id="skinThickness" name="skinThickness" placeholder="Enter Skin Thickness" step="0.1">
+            </div>
+
+            <div class="form-group">
+                <label>DIABETES PEDIGREE:</label>
+                <input type="number" id="diabetesPedigree" name="diabetesPedigree" placeholder="Enter DPF Value" step="0.01">
+            </div>
+
+            <div class="form-group button-group">
+                <button type="submit" class="predict-button">Predict</button>
+            </div>
+        </form>
+    </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
