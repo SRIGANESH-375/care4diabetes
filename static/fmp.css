@@ -277,48 +277,229 @@ footer {
     border-radius: 4px;
 }
 
-@media (max-width: 768px) {
+/* Large Devices (Desktops & Laptops) */
+@media screen and (max-width: 1200px) {
+    .main-content {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    .symptoms-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .image {
+        width: 250px;
+    }
+}
+
+/* Medium Devices (Tablets & Smaller Desktops) */
+@media screen and (max-width: 992px) {
+    header {
+        padding: 12px 15px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 6px 12px;
+    }
+
+    .symptoms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content h1 {
+        font-size: 24px;
+    }
+
+    .para {
+        font-size: 16px;
+    }
+
+    .types h2 {
+        font-size: 22px;
+    }
+
+    .types h3 {
+        font-size: 18px;
+    }
+}
+
+/* Small Devices (Landscape Tablets & Large Phones) */
+@media screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        padding: 10px;
+        gap: 10px;
     }
 
     nav {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .section {
         flex-direction: column;
+        align-items: center;
     }
 
-    .image-right {
+    .image-right, .image-left {
         flex-direction: column;
     }
 
     .image {
         width: 100%;
         max-width: 400px;
-        margin: 0 auto;
+        margin: 15px auto;
     }
 
     .content {
         padding: 0;
+        width: 100%;
     }
-}
 
-@media (max-width: 480px) {
-    .footer-links {
-        flex-direction: column;
-        gap: 10px;
+    .symptoms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .calculator {
+        width: 90%;
+    }
+
+    .footer-content {
+        padding: 0 15px;
+    }
+}
+
+/* Extra Small Devices (Portrait Phones) */
+@media screen and (max-width: 576px) {
+    header {
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav a {
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+    .symptoms-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .symptom-card {
+        padding: 12px;
+    }
+
+    .symptom-card h3 {
+        font-size: 16px;
+    }
+
+    .symptom-card p {
+        font-size: 14px;
+    }
+
+    .types {
+        padding: 12px;
+    }
+
+    .types h2 {
+        font-size: 20px;
+    }
+
+    .types h3 {
+        font-size: 16px;
+    }
+
+    .types p {
+        font-size: 14px;
+    }
+
+    .calculator input,
+    .calculator button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+    }
+
+    table td, 
+    table th {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
+
+/* Very Small Devices (Small Phones) */
+@media screen and (max-width: 360px) {
+    header {
+        padding: 6px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    .content h1 {
+        font-size: 20px;
+    }
+
+    .para {
         font-size: 14px;
     }
 
     .symptom-card {
         padding: 10px;
+    }
+
+    .calculator {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .footer-content h1 {
+        font-size: 18px;
+    }
+
+    .footer-content p {
+        font-size: 12px;
     }
 }
