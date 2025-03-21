@@ -34,6 +34,84 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let message, fitnessPlan, dietPlan, positiveText;
     
+    // Check glucose levels to provide specific recommendations
+    let glucoseRecommendations = '';
+    if (formData.glucose) {
+        const glucoseValue = parseFloat(formData.glucose);
+        if (glucoseValue < 70) {
+            // Low glucose recommendations
+            glucoseRecommendations = `
+              <div class="pll">
+                <h3 class="plan-title">STEPS TO IMPROVE LOW GLUCOSE LEVELS</h3>
+                <div class="plan-content">
+                    <p>• Consume Fast-Acting Carbohydrates (15-20 grams) like:</p>
+                    <section>
+                        <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Glucose tablets or gel</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>½ cup fruit juice or regular soda (not diet)</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>1 tablespoon honey or sugar</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>3-4 pieces of hard candy</h3>
+                </div>
+            </div>
+                    <p>• Wait and Recheck – After 15 minutes, check glucose levels again. If still low, repeat step above steps.</p>
+                    <p>• Eat a Balanced Snack – After stabilizing, eat a protein + complex carb snack (e.g., peanut butter with crackers) to maintain normal levels.</p>
+                    <p>• Identify & Prevent Causes – Avoid skipping meals, over-exercising without eating, excessive insulin, or alcohol consumption.</p>
+                    <p>• Consult a Doctor If:
+
+                        <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Blood sugar remains low despite taking glucose.</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>Symptoms like confusion, fainting, or seizures occur.</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>Frequent hypoglycemia episodes happen.</h3>
+                </div>
+                </div>
+        </section>
+                </div>
+            </div><br><br>
+            `;
+        } else if (glucoseValue > 140) {
+            // High glucose recommendations
+            glucoseRecommendations = `
+            <div class="pll">
+                <h3 class="plan-title">STEPS TO IMPROVE HIGH GLUCOSE LEVELS</h3>
+                <div class="plan-content">
+                    <p>• Drink Water – Helps flush out excess glucose through urine.</p>
+                    <p>• Engage in Physical Activity – Light exercise (e.g., walking) helps lower sugar. Avoid exercise if glucose is above 250 mg/dL with ketones in urine.</p>
+                    <p>• Adjust Diet – Reduce sugary foods, processed carbs, and increase fiber, lean proteins, and healthy fats.</p>
+                    <p>• Take Medication as Prescribed – Follow doctor’s advice on insulin or diabetes medications.</p>
+                    <p>• High stress raises glucose. Practice meditation, deep breathing, or light yoga.</p>
+                    <p>• Monitor Blood Sugar Regularly – Track levels to identify patterns.</p>
+                    <p>• Consult a Doctor If:
+                    <section>
+                        <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <h3>Blood sugar remains high despite following these steps.</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>Symptoms like excessive thirst, frequent urination, or fatigue worsen.</h3>
+                </div>
+                <div class="symptom-card">
+                    <h3>You experience ketoacidosis symptoms (nausea, vomiting, fruity breath, confusion).</h3>
+                </div>
+                </div>
+        </section>
+                </div>
+            </div><br><br>
+            `;
+        }
+    }
+    
     if (result.prediction === 1) {
         message = `Dear ${formattedName}, You are suffering from diabetes, Check your results below`;
         sadGif.style.display = 'block';
@@ -100,7 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     predictionResult.innerHTML = `<strong>${message}</strong>`;
     predictionProbability.textContent = `Probability: ${(result.probability * 100).toFixed(2)}%`;
-    planContent.innerHTML = `${fitnessPlan} ${dietPlan}`;
+    
+    // Add glucose recommendations if available
+    planContent.innerHTML = `${glucoseRecommendations}${fitnessPlan}${dietPlan}`;
     positiveMessage.textContent = positiveText;
 
     // Go Back Button Functionality (Flask Fix)
