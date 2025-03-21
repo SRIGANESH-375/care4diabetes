@@ -46,6 +46,11 @@ else:
 # Home Route (Loads `fmp.html` by default)
 @app.route('/')
 def home():
+    return render_template('c4d.html')
+
+# Route for `index.html`
+@app.route('/fmp')
+def fmp():
     return render_template('fmp.html')
 
 # Route for `index.html`
@@ -100,4 +105,4 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=False ,host='0.0.0.0')
+    app.run(debug=True)
