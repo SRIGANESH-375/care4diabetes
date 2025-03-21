@@ -355,6 +355,23 @@ footer {
     opacity: 0.8;
 }
 
+.symptom-card {
+    background-color: rgb(212, 238, 246);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 3px solid #2c3e50;
+}
+
+.symptoms-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
