@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care4Diabetes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #28a872; /* Adjusted green to better match the image */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        
+        .logo-text {
+            margin-left: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .logo-text span {
+            color: #28a872;
+            font-size: 35px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        .nav a:hover {
+            color: #28a872;
+        }
+        
+              
+        .content {
+            display: flex;
+            padding: 40px;
+            background-color: #f9f9f9;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23e0f5ea' stroke-width='1'%3E%3Cpath d='M100,100 L200,200 L300,100 M300,300 L400,400 L500,300 M700,100 L600,200 L500,100 M500,500 L400,600 L300,500 M700,500 L600,600 L500,500 M100,500 L200,600 L300,500'/%3E%3Ccircle cx='100' cy='100' r='3'/%3E%3Ccircle cx='200' cy='200' r='3'/%3E%3Ccircle cx='300' cy='100' r='3'/%3E%3Ccircle cx='300' cy='300' r='3'/%3E%3Ccircle cx='400' cy='400' r='3'/%3E%3Ccircle cx='500' cy='300' r='3'/%3E%3Ccircle cx='700' cy='100' r='3'/%3E%3Ccircle cx='600' cy='200' r='3'/%3E%3Ccircle cx='500' cy='100' r='3'/%3E%3Ccircle cx='500' cy='500' r='3'/%3E%3Ccircle cx='400' cy='600' r='3'/%3E%3Ccircle cx='300' cy='500' r='3'/%3E%3Ccircle cx='700' cy='500' r='3'/%3E%3Ccircle cx='600' cy='600' r='3'/%3E%3Ccircle cx='500' cy='500' r='3'/%3E%3Ccircle cx='100' cy='500' r='3'/%3E%3Ccircle cx='200' cy='600' r='3'/%3E%3Ccircle cx='300' cy='500' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .who-we-are {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .who-we-are::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 15px;
+            height: 3px;
+            background-color: #28a872;
+            transform: translateY(-50%);
+        }
+        
+        .about-us {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .about-us span {
+            color: #28a872;
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .login-btn {
+            background-color: #28a872;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .doctor-image {
+            position: relative;
+            z-index: 2;
+            width: 500px;
+            height: 400px;
+        }
+        
+        /* Login form styles */
+        .login-form {
+            margin-top: 30px;
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .login-submit {
+            background-color: #28a872;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .login-submit a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .btn-container {
+            margin-top: 10px;
+        }
+        
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        /* New User Button & Form Styles */
+        .new-user-btn {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .new-user-btn:hover {
+            background-color: #555;
+        }
+        
+        .signup-text {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .registration-form {
+            display: none;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .form-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        /* Success message styles */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-text">CARE<span>4</span>DIABETES</div>
+            </div>
+            
+            <div class="nav">
+                <a href="#" id="homeLink">HOME</a>
+                <a href="#" id="contactLink">CONTACT</a>
+            </div>          
+        </div>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="who-we-are">WHO WE ARE</div>
+                <h1 class="about-us">ABOUT <span>US</span></h1>
+                
+                <p class="description">
+                    At Care4Diabetes, we're dedicated to helping people with diabetes live healthier, more fulfilled lives. Our platform brings together essential resources, tools, and support for effective diabetes management.
+                </p>
+                <p class="description">
+                    We understand the daily challenges of diabetes management - from monitoring blood sugar levels to planning meals and staying active. Our team of healthcare professionals, nutritionists, and certified diabetes educators are committed to providing personalized support and evidence-based guidance for your unique needs.
+                </p>
+                
+                <div class="btn-container">
+                    <button class="login-btn" id="loginBtn">LOGIN</button>
+                </div>
+                
+                <div class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <div class="error-message" id="passwordError">Password is required</div>
+                    </div>
+                    <button class="login-submit disabled" id="submitBtn">LOGIN</button>
+                    <button class="login-btn" id="cancelBtn" style="background-color: #666; margin-left: 10px;">CANCEL</button>
+                    
+                    <div class="signup-text">New to Care4Diabetes?</div>
+                    <button class="new-user-btn" id="newUserBtn">NEW USER? REGISTER HERE</button>
+                    
+                    <div class="success-message" id="successMessage">
+                        Your account has been successfully created. Please login now to continue.
+                    </div>
+                    
+                    <div class="registration-form" id="registrationForm">
+                        <div class="form-title">Create Account</div>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Enter your full name" required>
+                            <div class="error-message" id="fullNameError">Full name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newEmail">Email</label>
+                            <input type="email" id="newEmail" placeholder="Enter your email" required>
+                            <div class="error-message" id="newEmailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Password</label>
+                            <input type="password" id="newPassword" placeholder="Create a password" required>
+                            <div class="error-message" id="newPasswordError">Password must be at least 8 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                            <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+                        </div>
+                        <button class="login-submit disabled" id="registerBtn">CREATE ACCOUNT</button>
+                        <button class="login-btn" id="backToLoginBtn" style="background-color: #666; margin-left: 10px;">BACK TO LOGIN</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='Care4Diabetes.webp') }}" alt="Diabetes Image" class="doctor-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+// Elements
+const loginBtn = document.getElementById('loginBtn');
+const loginForm = document.getElementById('loginForm');
+const cancelBtn = document.getElementById('cancelBtn');
+const btnContainer = document.querySelector('.btn-container');
+const homeLink = document.getElementById('homeLink');
+const contactLink = document.getElementById('contactLink');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const emailError = document.getElementById('emailError');
+const passwordError = document.getElementById('passwordError');
+const submitBtn = document.getElementById('submitBtn');
+
+// New User Elements
+const newUserBtn = document.getElementById('newUserBtn');
+const registrationForm = document.getElementById('registrationForm');
+const backToLoginBtn = document.getElementById('backToLoginBtn');
+const registerBtn = document.getElementById('registerBtn');
+const successMessage = document.getElementById('successMessage');
+
+// Registration Form Elements
+const fullNameInput = document.getElementById('fullName');
+const newEmailInput = document.getElementById('newEmail');
+const newPasswordInput = document.getElementById('newPassword');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+const fullNameError = document.getElementById('fullNameError');
+const newEmailError = document.getElementById('newEmailError');
+const newPasswordError = document.getElementById('newPasswordError');
+const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+// Regular expression for email validation
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Function to show the login form
+function showLoginForm() {
+    loginForm.style.display = 'block';
+    btnContainer.style.display = 'none';
+    registrationForm.style.display = 'none'; // Ensure registration form is hidden
+    successMessage.style.display = 'none'; // Hide success message
+    
+    // Show login fields
+    document.querySelectorAll('.form-group').forEach(group => {
+        if (!group.closest('#registrationForm')) {
+            group.style.display = 'block';
+        }
+    });
+    submitBtn.style.display = 'inline-block';
+    cancelBtn.style.display = 'inline-block'; // Show cancel button
+}
+
+// Function to hide the login form
+function hideLoginForm() {
+    loginForm.style.display = 'none';
+    btnContainer.style.display = 'block';
+    // Reset form
+    emailInput.value = '';
+    passwordInput.value = '';
+    emailError.style.display = 'none';
+    passwordError.style.display = 'none';
+    registrationForm.style.display = 'none';
+    successMessage.style.display = 'none';
+    submitBtn.classList.add('disabled');
+    
+    // Reset registration form
+    resetRegistrationForm();
+}
+
+// Function to reset registration form
+function resetRegistrationForm() {
+    fullNameInput.value = '';
+    newEmailInput.value = '';
+    newPasswordInput.value = '';
+    confirmPasswordInput.value = '';
+    fullNameError.style.display = 'none';
+    newEmailError.style.display = 'none';
+    newPasswordError.style.display = 'none';
+    confirmPasswordError.style.display = 'none';
+    registerBtn.classList.add('disabled');
+}
+
+// Function to toggle registration form
+function showRegistrationForm() {
+    registrationForm.style.display = 'block';
+    successMessage.style.display = 'none';
+    
+    // Hide login fields
+    document.querySelectorAll('.form-group').forEach(group => {
+        if (!group.closest('#registrationForm')) {
+            group.style.display = 'none';
+        }
+    });
+    submitBtn.style.display = 'none';
+    cancelBtn.style.display = 'none'; // Hide cancel button
+    
+    // Reset validation states
+    emailError.style.display = 'none';
+    passwordError.style.display = 'none';
+}
+
+function hideRegistrationForm() {
+    registrationForm.style.display = 'none';
+    
+    // Show login fields
+    document.querySelectorAll('.form-group').forEach(group => {
+        if (!group.closest('#registrationForm')) {
+            group.style.display = 'block';
+        }
+    });
+    submitBtn.style.display = 'inline-block';
+    cancelBtn.style.display = 'inline-block'; // Show cancel button
+    
+    // Reset registration form
+    resetRegistrationForm();
+}
+
+// Function to validate login form and enable/disable submit button
+function validateLoginForm() {
+    const isEmailValid = emailRegex.test(emailInput.value);
+    const isPasswordValid = passwordInput.value.trim() !== '';
+    
+    // Show/hide error messages
+    emailError.style.display = isEmailValid ? 'none' : 'block';
+    passwordError.style.display = isPasswordValid ? 'none' : 'block';
+    
+    // Enable/disable submit button
+    if (isEmailValid && isPasswordValid) {
+        submitBtn.classList.remove('disabled');
+        
+        // Update the login button to work with direct link
+        submitBtn.innerHTML = '';
+        const loginLink = document.createElement('a');
+        loginLink.href = "{{ url_for('fmp') }}";
+        loginLink.textContent = 'LOGIN';
+        submitBtn.appendChild(loginLink);
+    } else {
+        submitBtn.classList.add('disabled');
+        submitBtn.innerHTML = 'LOGIN';
+    }
+}
+
+// Function to validate registration form
+function validateRegistrationForm() {
+    const isFullNameValid = fullNameInput.value.trim() !== '';
+    const isNewEmailValid = emailRegex.test(newEmailInput.value);
+    const isNewPasswordValid = newPasswordInput.value.length >= 8;
+    const doPasswordsMatch = newPasswordInput.value === confirmPasswordInput.value;
+    
+    // Show/hide error messages
+    fullNameError.style.display = isFullNameValid ? 'none' : 'block';
+    newEmailError.style.display = isNewEmailValid ? 'none' : 'block';
+    newPasswordError.style.display = isNewPasswordValid ? 'none' : 'block';
+    confirmPasswordError.style.display = (doPasswordsMatch || confirmPasswordInput.value === '') ? 'none' : 'block';
+    
+    // Enable/disable register button
+    if (isFullNameValid && isNewEmailValid && isNewPasswordValid && doPasswordsMatch && confirmPasswordInput.value !== '') {
+        registerBtn.classList.remove('disabled');
+    } else {
+        registerBtn.classList.add('disabled');
+    }
+}
+
+// Event Listeners
+loginBtn.addEventListener('click', showLoginForm);
+homeLink.addEventListener('click', showLoginForm);
+contactLink.addEventListener('click', showLoginForm);
+cancelBtn.addEventListener('click', hideLoginForm);
+
+// New User Button Event Listeners
+newUserBtn.addEventListener('click', function() {
+    console.log('New User button clicked');
+    showRegistrationForm();
+});
+backToLoginBtn.addEventListener('click', function() {
+    console.log('Back to Login button clicked');
+    hideRegistrationForm();
+});
+
+// Register button functionality
+registerBtn.addEventListener('click', function(e) {
+    if (registerBtn.classList.contains('disabled')) {
+        e.preventDefault();
+        
+        // Show validation errors
+        validateRegistrationForm();
+        return;
+    }
+    
+    // Here you would normally handle the registration process with an API call
+    // For now, we'll just show a success message
+    registrationForm.style.display = 'none';
+    successMessage.style.display = 'block';
+    
+    // Reset form fields
+    resetRegistrationForm();
+    
+    // Show login fields again
+    document.querySelectorAll('.form-group').forEach(group => {
+        if (!group.closest('#registrationForm')) {
+            group.style.display = 'block';
+        }
+    });
+    submitBtn.style.display = 'inline-block';
+    cancelBtn.style.display = 'inline-block'; // Show cancel button
+});
+
+// Input validation events for login
+emailInput.addEventListener('input', validateLoginForm);
+passwordInput.addEventListener('input', validateLoginForm);
+
+// Input validation events for registration
+fullNameInput.addEventListener('input', validateRegistrationForm);
+newEmailInput.addEventListener('input', validateRegistrationForm);
+newPasswordInput.addEventListener('input', validateRegistrationForm);
+confirmPasswordInput.addEventListener('input', validateRegistrationForm);
+
+// Submit button click handler
+submitBtn.addEventListener('click', function(e) {
+    if (submitBtn.classList.contains('disabled')) {
+        e.preventDefault();
+        
+        // Show error messages for empty fields
+        if (emailInput.value.trim() === '') {
+            emailError.style.display = 'block';
+        }
+        if (passwordInput.value.trim() === '') {
+            passwordError.style.display = 'block';
+        }
+    }
+});
+
+
+    </script>
+</body>
+</html>
